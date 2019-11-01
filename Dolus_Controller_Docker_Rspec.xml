@@ -1,0 +1,11 @@
+<rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:tour="http://www.protogeni.net/resources/rspec/ext/apt-tour/1" xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="node-0" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="/local/docker-install.sh" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="/local/controller-install.sh" shell="/bin/sh"/>
+<install xmlns="http://www.geni.net/resources/rspec/3" url="https://wangso-test.s3.amazonaws.com/docker-controller.tgz" install_path="/local/"/>
+</services>
+</node>
+</rspec>
