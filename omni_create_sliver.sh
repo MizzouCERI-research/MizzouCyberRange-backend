@@ -14,4 +14,4 @@ function checkErr() {
     echo -e "$1 failed\". Exiting...">&2; exit;
 }
 
-omni -a ${aggregate[$index]} createsliver $1 /data/CyberRange_$2_rspec_${aggregate[$index]}.xml || checkErr "create sliver "
+omni -a ${aggregate[$index]} createsliver $1 /data/rspecs/CyberRange_$2_rspec_${aggregate[$index]}.xml || checkErr "create sliver "
