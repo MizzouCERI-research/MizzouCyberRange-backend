@@ -11,7 +11,8 @@ index=$(($RANDOM % $size))
 echo ${aggregate[$index]}
 
 function checkErr() {
-    echo -e "$1 failed\". Exiting...">&2; exit;
+    #echo -e "$1 failed\". Exiting...">&2; exit;
+    echo -e "{\"status\":\"fail\"}">&2; exit;
 }
 
 omni -a ${aggregate[$index]} createsliver $1 /data/rspecs/CyberRange_$2_rspec_${aggregate[$index]}.xml || checkErr "create sliver "
