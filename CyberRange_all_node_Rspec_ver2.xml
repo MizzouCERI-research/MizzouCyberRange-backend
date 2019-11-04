@@ -1,0 +1,193 @@
+<!-- This rspec use illoinis ag and all resources except controller are using base ubuntu, controller uses docker container  -->
+
+<rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:tour="http://www.protogeni.net/resources/rspec/ext/apt-tour/1" xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="controller" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="/local/docker-install.sh" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="/local/controller-install.sh" shell="/bin/sh"/>
+<install xmlns="http://www.geni.net/resources/rspec/3" url="https://wangso-test.s3.amazonaws.com/docker-controller.tgz" install_path="/local/"/>
+</services>
+</node>
+
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="slave_switch" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/router.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU14-OVS2.31"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.101" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-10">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.5" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-12">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.6" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-14">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.7" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-16">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.8" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-18">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.9" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-20">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.10" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="root_switch" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/router.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU14-OVS2.31"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.1" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.2" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.3" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.4" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="serevr1" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.102" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="server2" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-7">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.103" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="server3" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.104" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="QVM" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.105" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="attacker3" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-13">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.106" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="user1" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-15">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.107" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="attacker1" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-17">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.108" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="user2" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-19">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.109" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="attacker2" component_manager_id="urn:publicid:IDN+instageni.illinois.edu+authority+cm">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-21">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.0.0.110" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-0">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-2">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-3">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-7"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-4">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-5">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-10"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-6">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-12"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-13"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-7">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-14"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-15"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-8">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-16"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-17"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-9">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-18"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-19"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-10">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-20"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-21"/>
+<component_manager xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+instageni.illinois.edu+authority+cm"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+</rspec>
