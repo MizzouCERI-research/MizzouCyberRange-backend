@@ -1,3 +1,3 @@
 # cyberRange
-cyber range project
+This is the Mizzou CyberRange project
 
