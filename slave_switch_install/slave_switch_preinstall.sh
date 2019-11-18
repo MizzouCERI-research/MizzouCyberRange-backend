@@ -130,4 +130,4 @@ sudo ovs-vsctl add-port br0 eth6
 sudo ovs-vsctl add-port br0 eth7
 echo -e "\n${GREEN}Network bridge configuration successful!${NC}"
 
-echo -e "\n${GREEN}Configuration of the slave switch has been completed. Please go back to the controller and take note of the DPID number displayed on the switch. It should be a 14-digit number that will be used to identify the slave switch later.${NC}"
+echo -e "\n${GREEN}Slave switch library install completed, please set controller with the controller's IP address.${NC}"
