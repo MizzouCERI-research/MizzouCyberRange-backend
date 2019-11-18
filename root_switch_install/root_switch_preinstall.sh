@@ -79,3 +79,4 @@ sudo ovs-vsctl add-port br0 eth3
 sudo ovs-vsctl add-port br0 eth4
 
 echo -e "\n${GREEN}Network bridge configuration successful!${NC}"
+echo -e "\n${GREEN}Root switch library install completed, please set controller with the controller's IP address.${NC}"
