@@ -44,6 +44,13 @@ echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debc
 sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure wireshark-common || checkErr "Wireshark preinstallation configuration"
 echo -e "${GREEN}Tshark was installed properly!${NC}"
 
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server || checkErr "MySql install"
+echo -e "${GREEN} MySql was installed properly!${NC}"
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y python-mysql.connector || checkErr "python-mysql.connector install"  
+echo -e "${GREEN} python-mysql.connector was installed properly!${NC}"
+sudo apt-get -y install bwm-ng || checkErr "bwm-ng "
+echo -e "${GREEN} bwm-ng was installed properly!${NC}"
+
 #Install openvswitch-switch
 echo -e "${BLUE}\nInstalling openvswitch...${NC}"
 sudo apt-get install -y openvswitch-switch tshark
