@@ -44,6 +44,7 @@ echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debc
 sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure wireshark-common || checkErr "Wireshark preinstallation configuration"
 echo -e "${GREEN}Tshark was installed properly!${NC}"
 
+#install mysql and bwm
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server || checkErr "MySql install"
 echo -e "${GREEN} MySql was installed properly!${NC}"
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y python-mysql.connector || checkErr "python-mysql.connector install"  
