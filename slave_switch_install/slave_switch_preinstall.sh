@@ -31,42 +31,9 @@ if [[ $EUID -ne 0 ]] ; then
     exit
 fi
 
-#Check to see if an argument has been supplied. If not, exit the script.
-if [ -z "$1" ] ; then
-    echo -e "${RED}No arguments supplied. Please supply the IP address of the controller as an argument. Exiting.${NC}"
-    exit
-fi
-
-#This function tests to see if an IP address is valid or not.
-#Taken from https://www.linuxjournal.com/content/validating-ip-address-bash-script
-function valid_ip()
-{
-    local  ip=$1
-    local  stat=1
-
-    if [[ $ip =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-        OIFS=$IFS
-        IFS='.'
-        ip=($ip)
-        IFS=$OIFS
-        [[ ${ip[0]} -le 255 && ${ip[1]} -le 255 \
-            && ${ip[2]} -le 255 && ${ip[3]} -le 255 ]]
-        stat=$?
-    fi
-    return $stat
-}
-
 function checkErr() {
     echo -e "${RED}$1 failed. Exiting.${NC}" >&2; exit;
 }
-
-#Check if IP address is passed as a parameter. 
-if ! valid_ip $1 ; then
-    echo -e "${RED}You entered an invalid IP address. Please enter a valid IP address as the first parameter. Exiting.${NC}"
-    exit
-else
-    ipAddress="$1"
-fi
 
 #Update the package lists on the slave switch.
 echo -e "${BLUE}Updating the package lists on the slave switch.${NC}"
