@@ -27,7 +27,7 @@ echo "# is configured properly.                                       #"
 echo -e "#################################################################"${NC}
 echo "" #Acts as a newline by outputting nothing.
 
-#Check to see if the script is run as root/sudo. If not, warn the user and exit.
+#Check to see if the script is run as root/. If not, warn the user and exit.
 if [[ $EUID -ne 0 ]] ; then
     echo -e "${RED}This script needs to be run as root. Please run this script again as root. Exiting.${NC}"
     exit

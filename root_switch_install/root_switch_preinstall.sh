@@ -12,12 +12,6 @@ LIGHTBLUE='\033[1;34m'
 LIGHTGREEN='\033[1;32m'
 NC='\033[0m' # No Color
 
-#Check to see if the script is run as root/sudo. If not, warn the user and exit.
-if [[ $EUID -ne 0 ]] ; then
-    echo -e "${RED}This script needs to be run as root. Please run this script again as root. Exiting.${NC}"
-    exit
-fi
-
 function checkErr() {
     echo -e "${RED}$1 failed. Exiting.${NC}" >&2; exit;
 }
